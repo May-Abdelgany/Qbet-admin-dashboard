@@ -13,6 +13,9 @@ import { AdminsComponent } from './components/admins/admins.component';
 
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
+import { TeachersComponent } from './components/teachers/teachers.component';
+import { AddTeacherComponent } from './components/add-teacher/add-teacher.component';
+import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { EditAdminComponent } from './components/edit-admin/edit-admin.component
     SidebarComponent,
     AdminsComponent,
     AddAdminComponent,
-    EditAdminComponent
+    EditAdminComponent,
+    TeachersComponent,
+    AddTeacherComponent,
+    EditTeacherComponent
   ],
   imports: [
     BrowserModule,

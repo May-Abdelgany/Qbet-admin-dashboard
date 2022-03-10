@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class EditAdminComponent implements OnInit {
   admin: any;
+  errorMessage:string="";
   constructor(private _AdminService: AdminService,private _Router:Router) { }
 
   editAdminForm: FormGroup = new FormGroup({
@@ -17,7 +18,6 @@ export class EditAdminComponent implements OnInit {
     lastname: new FormControl(null,[Validators.required,Validators.maxLength(15),Validators.minLength(3)]),
     email: new FormControl(null,[Validators.required,Validators.email]),
   });
-  errorMessage:string="";
   ngOnInit(): void {
     this._AdminService.showAdmin().subscribe((response) => {
       if (response.data != null) {

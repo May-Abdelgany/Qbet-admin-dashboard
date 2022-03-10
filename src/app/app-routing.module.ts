@@ -7,6 +7,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
+import { TeachersComponent } from './components/teachers/teachers.component';
+import { AddTeacherComponent } from './components/add-teacher/add-teacher.component';
+import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.component';
 
 const routes: Routes = [
   { path: " ", redirectTo: "login", pathMatch: "full" },
@@ -15,7 +18,9 @@ const routes: Routes = [
   { path: "admins", canActivate: [AuthGuard], component: AdminsComponent },
   { path: "admins/addAdmin", canActivate: [AuthGuard], component: AddAdminComponent },
   { path: "admins/editAdmin", canActivate: [AuthGuard], component: EditAdminComponent },
-  { path: "teachers", canActivate: [AuthGuard], component: AdminsComponent },
+  { path: "teachers", canActivate: [AuthGuard], component: TeachersComponent },
+  { path: "teachers/addTeacher", canActivate: [AuthGuard], component: AddTeacherComponent },
+  { path: "teachers/editTeacher", canActivate: [AuthGuard], component: EditTeacherComponent },
   { path: "**", component: NotFoundComponent }
 ];
 

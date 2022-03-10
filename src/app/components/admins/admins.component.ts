@@ -28,6 +28,7 @@ export class AdminsComponent implements OnInit {
   }
   getId(index: number) {
     this._AdminService.adminId = this.allAdmins[index].id;
+    console.log(this._AdminService.adminId);
     return this._AdminService.adminId;
   }
   Delete() {
