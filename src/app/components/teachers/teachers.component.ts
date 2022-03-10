@@ -12,11 +12,9 @@ export class TeachersComponent implements OnInit {
   allTeachers: any[] = [];
   teacherId: any;
   errorMessage:string="";
-  idUser:any;
   constructor(private _AuthService:AuthService,private _TeacherService: TeacherService) { }
 
   ngOnInit(): void {
-    this.idUser=JSON.parse(this._AuthService.data()).id;
     this.showAll();
   }
 

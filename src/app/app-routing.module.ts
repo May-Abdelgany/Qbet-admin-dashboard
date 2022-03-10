@@ -13,6 +13,7 @@ import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.com
 import { StudentsComponent } from './components/students/students.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 const routes: Routes = [
   { path: " ", redirectTo: "login", pathMatch: "full" },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "students", canActivate: [AuthGuard], component: StudentsComponent },
   { path: "students/addStudent", canActivate: [AuthGuard], component: AddStudentComponent},
   { path: "students/editStudent", canActivate: [AuthGuard], component: EditStudentComponent},
+  { path: "courses", canActivate: [AuthGuard], component:CoursesComponent},
   { path: "**", component: NotFoundComponent }
 ];
 

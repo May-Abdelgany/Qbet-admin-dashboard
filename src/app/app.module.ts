@@ -19,6 +19,7 @@ import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.com
 import { StudentsComponent } from './components/students/students.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { EditStudentComponent } from './components/edit-student/edit-student.com
     EditTeacherComponent,
     StudentsComponent,
     AddStudentComponent,
-    EditStudentComponent
+    EditStudentComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,

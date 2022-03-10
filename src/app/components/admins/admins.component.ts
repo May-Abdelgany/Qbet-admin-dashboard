@@ -13,7 +13,7 @@ export class AdminsComponent implements OnInit {
   adminId: any;
   errorMessage:string="";
   idUser:any;
-  constructor(private _AuthService:AuthService,private _AdminService: AdminService, private _Router: Router) { }
+  constructor(private _AuthService:AuthService,private _AdminService: AdminService) { }
   ngOnInit(): void {
     this.idUser=JSON.parse(this._AuthService.data()).id;
     this.showAll();
