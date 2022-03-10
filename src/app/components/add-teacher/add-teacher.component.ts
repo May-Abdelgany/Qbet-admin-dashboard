@@ -9,28 +9,27 @@ import { TeacherService } from 'src/app/services/teacher.service';
   styleUrls: ['./add-teacher.component.scss']
 })
 export class AddTeacherComponent implements OnInit {
-
-  constructor(private _TeacherService:TeacherService,private _Router:Router) { }
+  errorMessage: string = "";
+  constructor(private _TeacherService: TeacherService, private _Router: Router) { }
   addTeacherForm: FormGroup = new FormGroup({
-    firstname: new FormControl(null,[Validators.required,Validators.maxLength(15),Validators.minLength(3)]),
-    lastname: new FormControl(null,[Validators.required,Validators.maxLength(15),Validators.minLength(3)]),
-    email: new FormControl(null,[Validators.required,Validators.email]),
-    password: new FormControl(null,[Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/)]),
+    firstname: new FormControl(null, [Validators.required, Validators.maxLength(15), Validators.minLength(3)]),
+    lastname: new FormControl(null, [Validators.required, Validators.maxLength(15), Validators.minLength(3)]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/)]),
     role: new FormControl('teacher')
   });
-  errorMessage:string="";
   ngOnInit(): void {
   }
 
-  add(addAdminForm:FormGroup){
-    this._TeacherService.addTeacher(this.addTeacherForm.value).subscribe((Response)=>{
-     if(Response.data!=null){
+  add(addAdminForm: FormGroup) {
+    this._TeacherService.addTeacher(this.addTeacherForm.value).subscribe((Response) => {
+      if (Response.data != null) {
         this._Router.navigate(['teachers']);
-     }
-   },
-   (error)=>{
-     this.errorMessage=error.error.error;
-     console.log(this.errorMessage)
-   })
- }
+      }
+    },
+      (error) => {
+        this.errorMessage = error.error.error;
+        console.log(this.errorMessage)
+      })
+  }
 }

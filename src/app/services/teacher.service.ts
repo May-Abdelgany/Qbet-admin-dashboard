@@ -18,7 +18,7 @@ export class TeacherService {
     };
     return header;
   }
-  getAdmins(): Observable<any> {
+  getTeachers(): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/teachers`, { headers: this.token() });
   }
   addTeacher(data: any): Observable<any> {

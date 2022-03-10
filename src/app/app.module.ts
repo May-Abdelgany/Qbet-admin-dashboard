@@ -16,6 +16,10 @@ import { EditAdminComponent } from './components/edit-admin/edit-admin.component
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { AddTeacherComponent } from './components/add-teacher/add-teacher.component';
 import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.component';
+import { StudentsComponent } from './components/students/students.component';
+import { AddStudentComponent } from './components/add-student/add-student.component';
+import { EditStudentComponent } from './components/edit-student/edit-student.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.com
     EditAdminComponent,
     TeachersComponent,
     AddTeacherComponent,
-    EditTeacherComponent
+    EditTeacherComponent,
+    StudentsComponent,
+    AddStudentComponent,
+    EditStudentComponent
   ],
   imports: [
     BrowserModule,

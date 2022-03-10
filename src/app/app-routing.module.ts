@@ -10,6 +10,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { AddTeacherComponent } from './components/add-teacher/add-teacher.component';
 import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.component';
+import { StudentsComponent } from './components/students/students.component';
+import { AddStudentComponent } from './components/add-student/add-student.component';
+import { EditStudentComponent } from './components/edit-student/edit-student.component';
 
 const routes: Routes = [
   { path: " ", redirectTo: "login", pathMatch: "full" },
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: "teachers", canActivate: [AuthGuard], component: TeachersComponent },
   { path: "teachers/addTeacher", canActivate: [AuthGuard], component: AddTeacherComponent },
   { path: "teachers/editTeacher", canActivate: [AuthGuard], component: EditTeacherComponent },
+  { path: "students", canActivate: [AuthGuard], component: StudentsComponent },
+  { path: "students/addStudent", canActivate: [AuthGuard], component: AddStudentComponent},
+  { path: "students/editStudent", canActivate: [AuthGuard], component: EditStudentComponent},
   { path: "**", component: NotFoundComponent }
 ];
 

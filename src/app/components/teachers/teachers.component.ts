@@ -13,7 +13,7 @@ export class TeachersComponent implements OnInit {
   teacherId: any;
   errorMessage:string="";
   idUser:any;
-  constructor(private _AuthService:AuthService,private _TeacherService: TeacherService, private _Router: Router) { }
+  constructor(private _AuthService:AuthService,private _TeacherService: TeacherService) { }
 
   ngOnInit(): void {
     this.idUser=JSON.parse(this._AuthService.data()).id;
@@ -21,7 +21,7 @@ export class TeachersComponent implements OnInit {
   }
 
   showAll() {
-    this._TeacherService.getAdmins().subscribe((response) => {
+    this._TeacherService.getTeachers().subscribe((response) => {
       if (response.data != null) {
         this.allTeachers = response.data;
         console.log(response.data);
