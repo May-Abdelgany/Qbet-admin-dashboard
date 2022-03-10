@@ -1,0 +1,33 @@
+<div class="d-flex flex-column  bg-light vh-100 position-fixed top-0 start-0 " style="width: 100px;" *ngIf="islogin">
+  <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+    <li class="nav-item">
+      <a class="nav-link py-3 border-bottom" routerLink="/home" routerLinkActive="bg-primary text-white">
+        <i class="fa fa-home"></i>
+        <small>Home</small>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/admins" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+        <i class="fa-solid fa-users-gear fs-4"></i>
+        <small>Admin</small> </a>
+    </li>
+    <li class="nav-item">
+      <a  routerLink="/teachers"  routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+        <i class="fa-solid fa-user-pen fs-4"></i>
+        <small>Teacher</small>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a  class="nav-link py-3 border-bottom">
+        <i class="fa fa-cog"></i>
+        <small>Settings</small>
+      </a>
+    </li>
+    <li>
+      <a class="nav-link py-3 border-bottom " (click)="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <small>Log out</small>
+      </a>
+    </li>
+  </ul>
+</div>
