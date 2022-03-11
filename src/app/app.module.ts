@@ -20,6 +20,8 @@ import { StudentsComponent } from './components/students/students.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
+import { EditCourseComponent } from './components/edit-course/edit-course.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { CoursesComponent } from './components/courses/courses.component';
     StudentsComponent,
     AddStudentComponent,
     EditStudentComponent,
-    CoursesComponent
+    CoursesComponent,
+    AddCourseComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,

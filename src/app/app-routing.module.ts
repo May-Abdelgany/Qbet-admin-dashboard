@@ -1,3 +1,4 @@
+import { EditCourseComponent } from './components/edit-course/edit-course.component';
 import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { AdminsComponent } from './components/admins/admins.component';
@@ -14,9 +15,10 @@ import { StudentsComponent } from './components/students/students.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
 
 const routes: Routes = [
-  { path: " ", redirectTo: "login", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "home", canActivate: [AuthGuard], component: HomeComponent },
   { path: "admins", canActivate: [AuthGuard], component: AdminsComponent },
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: "students/addStudent", canActivate: [AuthGuard], component: AddStudentComponent},
   { path: "students/editStudent", canActivate: [AuthGuard], component: EditStudentComponent},
   { path: "courses", canActivate: [AuthGuard], component:CoursesComponent},
+  { path: "courses/addCourse", canActivate: [AuthGuard], component: AddCourseComponent },
+  { path: "courses/editCourse", canActivate: [AuthGuard], component:EditCourseComponent },
   { path: "**", component: NotFoundComponent }
 ];
 

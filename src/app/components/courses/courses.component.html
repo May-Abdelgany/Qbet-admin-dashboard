@@ -2,7 +2,7 @@
   <div class="container my-5">
     <h2 class="text-center fw-bold mb-5">All Courses in system</h2>
     <div class="d-flex justify-content-end">
-      <button class="btn btn-primary mb-3" routerLink="addAdmin">Add admin</button>
+      <button class="btn btn-primary mb-3" routerLink="addCourse">Add Course</button>
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-6" *ngFor="let course of allCourses;let i=index">
@@ -12,7 +12,7 @@
             <div class="card-body">
               <h5 class="card-title">{{course.title}}</h5>
               <p class="card-text">{{course.description}}</p>
-              <button class="btn btn-warning me-3">Edit</button>
+              <button class="btn btn-warning me-3" (click)="getId(i)" routerLink="editCourse">Edit</button>
               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getId(i)">Delete</button>
             </div>
           </div>
