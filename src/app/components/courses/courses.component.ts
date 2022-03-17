@@ -9,7 +9,9 @@ declare var $:any;
 })
 export class CoursesComponent implements OnInit {
   allCourses:any[]=[];
-  constructor(private _AuthService:AuthService,private _CourseService: CourseService) { }
+  constructor(private _AuthService:AuthService,private _CourseService: CourseService) {
+    
+  }
 
   ngOnInit(): void {
     this.showAll();
@@ -24,7 +26,7 @@ export class CoursesComponent implements OnInit {
   }
   getId(index: number) {
     this._CourseService.courseId = this.allCourses[index].id;
-    console.log( this._CourseService.courseId);
+    localStorage.setItem('courseId',''+this.allCourses[index].id)
     return this._CourseService.courseId;
   }
   Delete() {

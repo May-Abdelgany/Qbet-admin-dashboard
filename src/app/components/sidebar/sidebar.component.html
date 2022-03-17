@@ -1,4 +1,4 @@
-<div class="d-flex flex-column  bg-light vh-100 position-fixed top-0 start-0 " style="width: 100px;" *ngIf="islogin">
+<div class="flex-column  bg-light vh-100 position-fixed sidebar" style="width: 100px;" *ngIf="islogin">
   <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
     <li class="nav-item">
       <a class="nav-link py-3 border-bottom" routerLink="/home" routerLinkActive="bg-primary text-white">
@@ -29,14 +29,13 @@
         <small>course</small>
       </a>
     </li>
-    <!--
-      <li class="nav-item">
-      <a routerLink="/courses" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-book fs-4"></i>
+    <li class="nav-item">
+      <a routerLink="/enrolls" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+        <i class="fa-solid fa-cloud-arrow-down fs-4"></i>
         <small>enroll student</small>
       </a>
     </li>
-    <li class="nav-item">
+    <!--<li class="nav-item">
       <a routerLink="/courses" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
         <i class="fa-solid fa-book fs-4"></i>
         <small>enroll teacher</small>
@@ -50,4 +49,7 @@
       </a>
     </li>
   </ul>
+</div>
+<div>
+  <i class="position-fixed menue bg-white p-2 fa-solid fa-bars fs-3" (click)="toggle()"></i>
 </div>

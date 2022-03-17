@@ -32,5 +32,4 @@ export class AddAdminComponent implements OnInit {
       console.log(this.errorMessage)
     })
   }
-
 }

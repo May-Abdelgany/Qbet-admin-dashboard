@@ -33,4 +33,10 @@ export class StudentService {
   deleteStudent(data: any): Observable<any> {
     return this._HttpClient.delete(`http://127.0.0.1:8000/api/students/${this.studentId}`,{ headers: this.token() });
   }
+  Get_studentId(): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/student/${this.studentId}`, { headers: this.token() });
+  }
+  enrollStudent(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/enroll/student`, data, { headers: this.token() });
+  }
 }

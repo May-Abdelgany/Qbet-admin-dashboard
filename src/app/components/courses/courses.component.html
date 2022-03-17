@@ -10,10 +10,15 @@
           <div class="card border border-5">
             <img src="../../../assets/images/List-of-Courses-after-10th-Standard.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">{{course.title}}</h5>
+              <h3 class="card-title fw-bold fs-4">{{course.title}}</h3>
               <p class="card-text">{{course.description}}</p>
-              <button class="btn btn-warning me-3" (click)="getId(i)" routerLink="editCourse">Edit</button>
-              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getId(i)">Delete</button>
+             <div>
+              <button class="btn btn-primary me-3 mb-3" (click)="getId(i)" routerLink="studentInCourse">students in course</button>
+              <button class="btn btn-primary me-3 mb-3" routerLink="editCourse">teachers in course</button>
+              <br>
+              <button class="btn btn-warning me-3 " (click)="getId(i)" routerLink="editCourse">Edit</button>
+              <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getId(i)">Delete</button>
+             </div>
             </div>
           </div>
         </div>
@@ -25,7 +30,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete Admin</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Delete Course</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
