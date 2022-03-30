@@ -1,0 +1,48 @@
+<section>
+  <div class="container my-5">
+    <h2 class="text-center fw-bold mb-5">All teachers in system</h2>
+    <button class="btn btn-primary mb-4 float-end me-2" routerLink="addTeacher">Add teacher</button>
+    <table class="table table-bordered text-center">
+      <thead class="bg-primary">
+        <tr>
+          <th scope="col">name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacher of allTeachers ;let i=index">
+          <td>{{teacher.firstname}} {{teacher.lastname}}</td>
+          <td>{{teacher.email}}</td>
+          <td>
+            <button class="btn btn-warning" (click)="getId(i)" routerLink="editTeacher">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="getId(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Modal -->
+  <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete teacher</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="text-center">Are you sure you want to delete this teacher ?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="Delete()">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+  </div>
+
+</section>
