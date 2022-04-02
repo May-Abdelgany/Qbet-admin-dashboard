@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-md-8 offset-md-2 bg-primary">
         <div>
-          <form class="bg-white m-5 p-5" [formGroup]="formQuestion" (ngSubmit)="add(formQuestion)">
-            <h2 class="text-center fw-bold">Add complete question</h2>
+          <form class="bg-white m-5 p-5" [formGroup]="formQuestion" (ngSubmit)="edit(formQuestion)">
+            <h2 class="text-center fw-bold">update True and False question</h2>
             <div class="mb-3">
               <label for="question" class="form-label">question</label>
               <textarea class="form-control" placeholder="enter your question" id="question" formControlName="question"></textarea>
@@ -13,10 +13,14 @@
               question is required</p>
             </div>
             <div class="mb-3">
-              <label for="answer" class="form-label">answer</label>
-              <input type="text" class="form-control" id="answer" formControlName="answer">
+              <label for="answer_correct" class="form-label">correct answer</label>
+              <select class="form-select" aria-label="Default select example" id="correct_answer" formControlName="correct_answer">
+                <option selected value="null" disabled>Select correct answer </option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
               <p class="text-danger"
-              *ngIf="formQuestion.controls['answer'].touched && formQuestion.controls['answer'].errors?.['required']">
+              *ngIf="formQuestion.controls['correct_answer'].touched && formQuestion.controls['correct_answer'].errors?.['required']">
               answer is required</p>
             </div>
             <div class="mb-3">
@@ -49,7 +53,7 @@
               status is required</p>
             </div>
             <div class="mt-5">
-              <button type="submit" class="btn btn-primary  m-auto d-block" [disabled]="formQuestion.invalid">Submit</button>
+              <button type="submit" class="btn btn-primary  m-auto d-block" [disabled]="formQuestion.invalid">update</button>
             </div>
           </form>
         </div>

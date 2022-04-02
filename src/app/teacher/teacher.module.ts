@@ -9,6 +9,9 @@ import { SmcqQuestionsComponent } from './smcq-questions/smcq-questions.componen
 import { DmcqQuestionsComponent } from './dmcq-questions/dmcq-questions.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddCompleteQuestionComponent } from './add-complete-question/add-complete-question.component';
+import { UpdateCompleteQuestionComponent } from './update-complete-question/update-complete-question.component';
+import { AddTFQuestionComponent } from './add-tfquestion/add-tfquestion.component';
+import { UpdateTFQuestionComponent } from './update-tfquestion/update-tfquestion.component';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { AddCompleteQuestionComponent } from './add-complete-question/add-comple
     TfQuestionsComponent,
     SmcqQuestionsComponent,
     DmcqQuestionsComponent,
-    AddCompleteQuestionComponent
+    AddCompleteQuestionComponent,
+    UpdateCompleteQuestionComponent,
+    AddTFQuestionComponent,
+    UpdateTFQuestionComponent
   ],
   imports: [
     CommonModule,

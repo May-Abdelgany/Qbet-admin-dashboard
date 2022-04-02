@@ -6,7 +6,7 @@
     </div>
      <div class="row">
        <div class="col-12">
-         <h3 class="fw-bold text-center">option for update complete question</h3>
+         <h3 class="fw-bold text-center">option for add complete question</h3>
        </div>
        <div class="col-lg-6">
           <div class="px-3">
@@ -43,7 +43,7 @@
                 <p class="fw-bold float-start pt-1"> {{question.status}}</p>
               </div>
               <div class="clear pb-2">
-                <button class="btn btn-warning me-4">Update</button>
+                <button class="btn btn-warning me-4" (click)="getId(i)" routerLink="/teacher/updateCompleteQuestion">Update</button>
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="getId(i)">Delete</button>
               </div>
             </div>

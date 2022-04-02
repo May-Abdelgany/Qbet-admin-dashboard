@@ -44,7 +44,7 @@ export class CompleteQuestionsComponent implements OnInit {
   }
   getId(index:any){
     this.question_id=this.courseQuestions[index].id;
-    console.log(this.question_id)
+    localStorage.setItem('questionId',this.question_id)
   }
   Delete(){
     this._QuestionsService.deleteCompleteQuestion(this.question_id).subscribe((response)=>{
