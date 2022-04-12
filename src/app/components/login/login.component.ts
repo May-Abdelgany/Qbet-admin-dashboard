@@ -27,14 +27,9 @@ export class LoginComponent implements OnInit {
     return this._AuthService.login(loginForm.value).subscribe(
       (response) => {
         if (response.data != null) {
-          if (response.data.role == 'admin') {
-            localStorage.setItem('user', JSON.stringify(response.data));
-            this._AuthService.data();
-            this._Router.navigate(['home']);
-          }
-          else {
-            this.error_Auth = "don't have this permission";
-          }
+          localStorage.setItem('user', JSON.stringify(response.data));
+          this._AuthService.data();
+          this._Router.navigate(['home']);
         }
       },
       (error) => {

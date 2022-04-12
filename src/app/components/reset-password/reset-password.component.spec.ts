@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditAdminComponent } from './edit-admin.component';
+import { ResetPasswordComponent } from './reset-password.component';
 
-describe('EditAdminComponent', () => {
-  let component: EditAdminComponent;
-  let fixture: ComponentFixture<EditAdminComponent>;
+describe('ResetPasswordComponent', () => {
+  let component: ResetPasswordComponent;
+  let fixture: ComponentFixture<ResetPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditAdminComponent ]
+      declarations: [ ResetPasswordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditAdminComponent);
+    fixture = TestBed.createComponent(ResetPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

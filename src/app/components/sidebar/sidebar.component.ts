@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
   constructor(private _AuthService: AuthService, private _Router: Router) { }
 
   ngOnInit(): void {
+    this.role=JSON.parse(localStorage.getItem("user")|| '{}').role;
     this._AuthService.decode.subscribe(() => {
       if (this._AuthService.decode.getValue() == null) {
         this.islogin = false;
@@ -30,12 +31,12 @@ export class SidebarComponent implements OnInit {
 
   toggle(){
     if($('.menue').css('left')=='100px'){
-      $('.menue').animate({'left':'0px'},1000);
-      $('.sidebar').animate({'left':'-101%'},1000);
+      $('.menue').animate({'left':'0px'},600);
+      $('.sidebar').animate({'left':'-101%'},600);
     }
     else{
-      $('.menue').animate({'left':'100px'},1000);
-      $('.sidebar').animate({'left':'0%'},1000);
+      $('.menue').animate({'left':'100px'},600);
+      $('.sidebar').animate({'left':'0%'},600);
     }
   }
 }
