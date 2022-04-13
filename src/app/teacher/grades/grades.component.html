@@ -1,0 +1,21 @@
+<section>
+  <div class="container my-5">
+    <h2 class="text-center fw-bold mb-5">All Grades in this exam</h2>
+    <button class="btn btn-primary mb-4 float-end me-2" (click)="export()">export grades in file</button>
+    <table class="table table-bordered text-center">
+      <thead class="bg-primary">
+        <tr>
+          <th scope="col">first name</th>
+          <th scope="col">last name</th>
+          <th scope="col">Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of allData; let i=index;">
+          <td>{{data.fname}}</td>
+          <td>{{data.lname}}</td>
+          <td>{{data.grade}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

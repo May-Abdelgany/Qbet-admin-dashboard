@@ -30,4 +30,10 @@ export class EnrollService {
   DeleteEnroll(data:any): Observable<any> {
     return this._HttpClient.delete(`http://127.0.0.1:8000/api/enroll/student/${data}`,{ headers: this.token() });
   }
+  EnrollTeacherId(data:any):Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/enroll/getenrollId`, data, { headers: this.token() });
+  }
+  DeleteEnrollTeacher(data:any):Observable<any>{
+    return this._HttpClient.delete(`http://127.0.0.1:8000/api/enroll/teacher/${data}`,{ headers: this.token() });
+  }
 }

@@ -30,10 +30,11 @@
                 max length of first name is 255 char</p>
               <p class="text-danger"
                 *ngIf="addCourseForm.controls['description'].touched && addCourseForm.controls['description'].errors?.['minlength']">
-                max length of first name is 20 char</p>
+                min length of first name is 20 char</p>
             </div>
             <div>
-              <button type="submit" class="btnaddcourse btn btn-primary d-block m-auto mt-5" [disabled]="!addCourseForm.valid">add course</button>
+              <button type="submit" class="btnaddcourse btn btn-primary d-block m-auto mt-5"
+                [disabled]="!addCourseForm.valid">add course</button>
             </div>
           </div>
         </form>

@@ -13,6 +13,7 @@
             <div class="card-footer text-muted">
               <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="getId(i)">question
                 in this course</button>
+                <button class="btn btn-outline-warning mt-2" (click)="getId(i)" routerLink="/teacher/Exams">Exams in this course</button>
             </div>
           </div>
         </div>
@@ -40,12 +41,10 @@
             <input class="form-check-input" type="radio" name="question" value="smcq"/>
             <label class="form-check-label" for="question">static mcq</label>
             <br>
-            <input class="form-check-input" type="radio" name="question" value="dmcq"/>
-            <label class="form-check-label" for="question">dynamic mcq</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="get_type()">show this tybe of questions</button>
+          <button type="button" class="btn btn-primary" (click)="get_type()">show this type of questions</button>
            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>

@@ -10,54 +10,72 @@
       </div>
       <div class="col-lg-6">
         <div class="px-3">
-          <button class="btn btn-outline-primary me-2 mb-2 float-end w-100"
-            routerLink="/teacher/addTFQuestion">add true and false question</button>
+          <button class="btn btn-outline-primary me-2 mb-2 float-end w-100" routerLink="/teacher/addTFQuestion">add true
+            and false question</button>
         </div>
         <div class="clear"></div>
       </div>
       <div class="col-lg-6">
         <div class="px-3 form-group">
-          <input class="form-control float-start" type="file" id="formFile"  (change)="onFileSelected($event)">
+          <input class="form-control float-start" type="file" id="formFile" (change)="onFileSelected($event)">
           <button class="btn btn-outline-secondary float-end" (click)="upload()">upload</button>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-6" *ngFor="let question of courseQuestions;let i=index">
-        <div class="p-3 ">
-          <div class="border border-4 p-1">
-            <h2 class="text-center fw-bold text-danger">Question{{i+1}}</h2>
-            <div>
-              <h3 class="fw-bold text-primary float-start">Question: </h3>
-              <p class="fw-bold  float-start "> {{question.question}}</p>
-            </div>
-            <div class="clear">
-              <div class="row">
-                <div class="col-6">
-                  <h3 class="fw-bold text-primary d-inline">Answer1: </h3>
-                  <p class="fw-bold  d-inline"> {{question.answer1}}</p>
-                </div>
-                <div class="col-6">
-                  <h3 class="fw-bold text-primary d-inline">Answer2: </h3>
-                  <p class="fw-bold d-inline "> {{question.answer2}}</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12" *ngFor="let question of courseQuestions;let i=index">
+          <div class="p-3 ">
+            <div class="border border-4 p-1">
+              <h2 class="text-center fw-bold text-danger ">Question{{i+1}}</h2>
+              <div class="container">
+                <div class="row">
+                  <div class="col-3">
+                    <h3 class="fw-bold text-primary">Question:</h3>
+                  </div>
+                  <div class="col-9">
+                    <p class="fw-bold pt-1">{{question.question}}</p>
+                  </div>
                 </div>
               </div>
-              <div class="my-2">
-                <h3 class="fw-bold text-primary d-inline">Correct answer: </h3>
-                <p class="fw-bold d-inline "> {{question.correct_answer}}</p>
+              <div class="container">
+                <div class="row">
+                  <div class="col-3">
+                    <h3 class="fw-bold text-primary ">Correct answer: </h3>
+                  </div>
+                  <div class="col-9 ">
+                    <div class="">
+                      <p class="fw-bold"> {{question.correct_answer}}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="clear">
-              <h3 class="fw-bold text-primary float-start">Degree: </h3>
-              <p class="fw-bold float-start pt-1"> {{question.degree}}</p>
-            </div>
-            <div class="clear">
-              <h3 class="fw-bold text-primary float-start">Status: </h3>
-              <p class="fw-bold float-start pt-1"> {{question.status}}</p>
-            </div>
-            <div class="clear pb-2">
-              <button class="btn btn-warning me-4" routerLink="/teacher/updateTFQuestion" (click)="getId(i)">Update</button>
-              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="getId(i)">Delete</button>
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                    <h3 class="fw-bold text-primary ">Degree: </h3>
+                  </div>
+                  <div class="col-10 ">
+                    <p class="fw-bold  pt-1"> {{question.degree}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                    <h3 class="fw-bold text-primary ">Status: </h3>
+                  </div>
+                  <div class="col-10 ">
+                    <p class="fw-bold  pt-1"> {{question.status}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class=" pb-2 ms-4">
+                <button class="btn btn-warning me-4" routerLink="/teacher/updateTFQuestion"
+                  (click)="getId(i)">Update</button>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                  (click)="getId(i)">Delete</button>
+              </div>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   decode: any = new BehaviorSubject(null);
 
-  constructor(private _HttpClient: HttpClient,private _Router:Router) {
+  constructor(private _HttpClient: HttpClient, private _Router: Router) {
     if (localStorage.getItem("user") != null) {
       this.data();
     }
@@ -27,5 +27,13 @@ export class AuthService {
   }
   token() {
     return JSON.parse(this.data()).token;
+  }
+
+  forget(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/forget-password`, data);
+  }
+
+  reset(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/reset-password`, data);
   }
 }

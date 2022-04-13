@@ -1,3 +1,10 @@
+import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
+import { GradesComponent } from './grades/grades.component';
+import { UpdateExamComponent } from './update-exam/update-exam.component';
+import { AddExamComponent } from './add-exam/add-exam.component';
+import { ExamsComponent } from './exams/exams.component';
+import { UpdateMcqQuestionComponent } from './update-mcq-question/update-mcq-question.component';
+import { AddMcqQuestionComponent } from './add-mcq-question/add-mcq-question.component';
 import { UpdateTFQuestionComponent } from './update-tfquestion/update-tfquestion.component';
 import { UpdateCompleteQuestionComponent } from './update-complete-question/update-complete-question.component';
 import { AddCompleteQuestionComponent } from './add-complete-question/add-complete-question.component';
@@ -22,6 +29,13 @@ const routes: Routes = [
   { path: "updateCompleteQuestion", canActivate: [AuthGuard], component:UpdateCompleteQuestionComponent},
   { path: "addTFQuestion", canActivate: [AuthGuard], component:AddTFQuestionComponent},
   { path: "updateTFQuestion", canActivate: [AuthGuard], component:UpdateTFQuestionComponent},
+  { path: "addmcqQuestion", canActivate: [AuthGuard], component:AddMcqQuestionComponent},
+  { path: "updatemcqQuestion", canActivate: [AuthGuard], component:UpdateMcqQuestionComponent},
+  { path: "Exams", canActivate: [AuthGuard], component:ExamsComponent},
+  { path: "Exams/addExam", canActivate: [AuthGuard], component:AddExamComponent},
+  { path: "updateExam", canActivate: [AuthGuard], component:UpdateExamComponent},
+  { path: "grades", canActivate: [AuthGuard], component:GradesComponent},
+  { path: "exam/questions", canActivate: [AuthGuard], component:ExamQuestionsComponent},
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

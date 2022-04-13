@@ -1,0 +1,80 @@
+<section>
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 bg-primary">
+        <div>
+          <form class="bg-white m-5 p-5" [formGroup]="formQuestion" (ngSubmit)="add(formQuestion)">
+            <h2 class="text-center fw-bold">Add True and False question</h2>
+            <div class="mb-3">
+              <label for="question" class="form-label">question</label>
+              <textarea class="form-control" placeholder="enter your question" id="question" formControlName="question"></textarea>
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['question'].touched && formQuestion.controls['question'].errors?.['required']">
+              question is required</p>
+            </div>
+            <div class="mb-3">
+              <label for="answer1" class="form-label">answer1</label>
+              <input type="text" class="form-control" id="answer1" formControlName="answer1">
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['answer1'].touched && formQuestion.controls['answer1'].errors?.['required']">
+              answer1 is required</p>
+            </div>
+             <div class="mb-3">
+              <label for="answer2" class="form-label">answer2</label>
+              <input type="text" class="form-control" id="answer2" formControlName="answer2">
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['answer2'].touched && formQuestion.controls['answer2'].errors?.['required']">
+              answer2 is required</p>
+            </div>
+            <div class="mb-3">
+              <label for="answer3" class="form-label">answer3</label>
+              <input type="text" class="form-control" id="answer3" formControlName="answer3">
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['answer3'].touched && formQuestion.controls['answer3'].errors?.['required']">
+              answer3 is required</p>
+            </div>
+            <div class="mb-3">
+              <label for="answer_correct" class="form-label">correct answer</label>
+              <input type="text" class="form-control" id="answer_correct" formControlName="correct_answer">
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['correct_answer'].touched && formQuestion.controls['correct_answer'].errors?.['required']">
+              answer is required</p>
+            </div>
+            <div class="mb-3">
+              <label for="degree" class="form-label">degree</label>
+              <input type="number" class="form-control" id="degree" formControlName="degree">
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['degree'].touched && formQuestion.controls['degree'].errors?.['required']">
+              degree is required</p>
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['degree'].touched && formQuestion.controls['degree'].errors?.['min']">
+              degree min is 1</p>
+            </div>
+            <div class="mb-3">
+              <label for="time" class="form-label">time</label>
+              <input type="number" class="form-control" id="time" formControlName="time">
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['time'].touched && formQuestion.controls['time'].errors?.['required']">
+              time is required</p>
+            </div>
+            <div class="mb-3">
+              <label for="status" class="form-label">status</label>
+              <select class="form-select" aria-label="Default select example" id="status" formControlName="status">
+                <option selected value="null" disabled>Select status of question</option>
+                <option value="easy">easy</option>
+                <option value="medium">medium</option>
+                <option value="difficult">difficult</option>
+              </select>
+              <p class="text-danger"
+              *ngIf="formQuestion.controls['status'].touched && formQuestion.controls['status'].errors?.['required']">
+              status is required</p>
+            </div>
+            <div class="mt-5">
+              <button type="submit" class="btn btn-primary  m-auto d-block" [disabled]="formQuestion.invalid">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

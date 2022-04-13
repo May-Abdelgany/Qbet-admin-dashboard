@@ -21,35 +21,65 @@
          </div>
        </div>
      </div>
-    <div class="row">
-      <div class="col-lg-6"  *ngFor="let question of courseQuestions;let i=index">
-        <div class="p-3 ">
+     <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12" *ngFor="let question of courseQuestions;let i=index">
+          <div class="p-3 ">
             <div class="border border-4 p-1">
-              <h2 class="text-center fw-bold text-danger">Question{{i+1}}</h2>
-              <div class="">
-                <h3 class="fw-bold text-primary float-start">Question: </h3>
-                <p class="fw-bold  float-start pt-1"> {{question.question}}</p>
+              <h2 class="text-center fw-bold text-danger ">Question{{i+1}}</h2>
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                    <h3 class="fw-bold text-primary">Question:</h3>
+                  </div>
+                  <div class="col-9">
+                    <p class="fw-bold pt-1">{{question.question}}</p>
+                  </div>
+                </div>
               </div>
-              <div class="clear">
-                <h3 class="fw-bold text-primary float-start">Answer: </h3>
-                <p class="fw-bold float-start pt-1"> {{question.answer}}</p>
-              </div>
-              <div class="clear">
-                <h3 class="fw-bold text-primary float-start">Degree: </h3>
-                <p class="fw-bold float-start pt-1"> {{question.degree}}</p>
-              </div>
-              <div class="clear">
-                <h3 class="fw-bold text-primary float-start">Status: </h3>
-                <p class="fw-bold float-start pt-1"> {{question.status}}</p>
-              </div>
-              <div class="clear pb-2">
-                <button class="btn btn-warning me-4" (click)="getId(i)" routerLink="/teacher/updateCompleteQuestion">Update</button>
-                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="getId(i)">Delete</button>
+            <div class="container">
+              <div class="row">
+                <div class="col-2">
+                  <h3 class="fw-bold text-primary ">Answer: </h3>
+                </div>
+                <div class="col-10">
+                  <div>
+                    <p class="fw-bold"> {{question.answer}}</p>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-2">
+              <h3 class="fw-bold text-primary ">Degree: </h3>
+                </div>
+                <div class="col-10 ">
+                  <p class="fw-bold  pt-1"> {{question.degree}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-2">
+                  <h3 class="fw-bold text-primary ">Status: </h3>
+                </div>
+                <div class="col-10 ">
+                  <p class="fw-bold  pt-1"> {{question.status}}</p>
+                </div>
+              </div>
+            </div>
+            <div class=" pb-2 ms-4">
+              <button class="btn btn-warning me-4" routerLink="/teacher/updateTFQuestion"
+                (click)="getId(i)">Update</button>
+              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                (click)="getId(i)">Delete</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
    <!-- Modal -->
    <div class="modal fade exampleModal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

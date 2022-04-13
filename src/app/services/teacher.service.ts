@@ -33,4 +33,14 @@ export class TeacherService {
   deleteTeacher(data: any): Observable<any> {
     return this._HttpClient.delete(`http://127.0.0.1:8000/api/teachers/${this.teacherId}`,{ headers: this.token() });
   }
+
+  Get_teacherId(): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/teacher/${this.teacherId}`, { headers: this.token() });
+  }
+  Get_Id(data:any): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/teacher/${data}`, { headers: this.token() });
+  }
+  enrollTeacher(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/enroll/teacher`, data, { headers: this.token() });
+  }
 }
