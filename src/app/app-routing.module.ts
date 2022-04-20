@@ -1,3 +1,4 @@
+import { StudentGuard } from './guards/student.guard';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { AdminGuard } from './guards/admin.guard';
 
@@ -21,8 +22,12 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
-    path: 'teacher',
+    path: 'teacher',canActivate:[TeacherGuard],
     loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule)
+  },
+  {
+    path: 'student',canActivate:[StudentGuard],
+    loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
   },
   { path: "**", component: NotFoundComponent }
 ];

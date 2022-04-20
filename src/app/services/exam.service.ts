@@ -55,4 +55,14 @@ exam_id:any;
   examcomplete(data:any): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/getcomplete/${data}`, { headers: this.token()});
   }
+
+  doExam(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/startExam`, data, { headers: this.token()});
+  }
+  endtime(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/endexam`, data, { headers: this.token()});
+  }
+  starttime(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/startexam`, data, { headers: this.token()});
+  }
 }

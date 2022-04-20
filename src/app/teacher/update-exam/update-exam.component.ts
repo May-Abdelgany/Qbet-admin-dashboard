@@ -31,13 +31,13 @@ export class UpdateExamComponent implements OnInit {
     this._ExamService.showData(this.exam_id).subscribe((response)=>{
       if(response.data!=null){
         this.ExamData=response.data;
-        this.formExam.controls['name'].setValue( this.ExamData.name);
-        this.formExam.controls['code'].setValue( this.ExamData.code);
-        this.formExam.controls['number_of_question_tf'].setValue( this.ExamData.number_of_question_tf);
-        this.formExam.controls['number_of_question_complete'].setValue( this.ExamData.number_of_question_complete);
-        this.formExam.controls['number_of_question_static_mcq'].setValue( this.ExamData.number_of_question_static_mcq);
+        this.formExam.controls['name'].setValue(this.ExamData.name);
+        this.formExam.controls['code'].setValue(this.ExamData.code);
+        this.formExam.controls['number_of_question_tf'].setValue(this.ExamData.number_of_question_tf);
+        this.formExam.controls['number_of_question_complete'].setValue(this.ExamData.number_of_question_complete);
+        this.formExam.controls['number_of_question_static_mcq'].setValue(this.ExamData.number_of_question_static_mcq);
         this.formExam.controls['end_time'].setValue( this.ExamData.end_time);
-        this.formExam.controls['time_of_exam'].setValue( this.ExamData.time_of_exam);
+        this.formExam.controls['time_of_exam'].setValue(this.ExamData.time_of_exam);
       }
     })
   }

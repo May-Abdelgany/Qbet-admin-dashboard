@@ -1,0 +1,15 @@
+<section class="my-5">
+  <div class="container p-5 bg-primary">
+    <div class="bg-white p-5">
+      <h1 class="text-center fw-bold">Do exam</h1>
+      <div class="alert alert-danger text-center" role="alert" *ngIf="errorMessage">
+        <P>{{errorMessage}}</P>
+      </div>
+      <form class="p-5" [formGroup]="codeform" (submit)="doExam(codeform)">
+        <label class="form-label fw-bold">enter exam code</label>
+        <input class="form-control" type="number" placeholder="enter the code of exam" formControlName="code">
+        <input type="submit" class="btn btn-outline-primary mt-3 d-block m-auto" name="submit">
+      </form>
+    </div>
+  </div>
+</section>

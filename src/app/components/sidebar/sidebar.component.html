@@ -47,6 +47,12 @@
         <small>my courses</small>
       </a>
     </li>
+    <li class="nav-item" *ngIf="role=='student'">
+      <a routerLink="/student/exam" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+        <i class="fa-solid fa-book fs-4"></i>
+        <small>Do Exam</small>
+      </a>
+    </li>
     <li>
       <a class="nav-link py-3 border-bottom " (click)="logout()">
         <i class="fa-solid fa-right-from-bracket fs-4"></i>
