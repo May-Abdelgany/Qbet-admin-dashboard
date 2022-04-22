@@ -59,10 +59,22 @@ exam_id:any;
   doExam(data: any): Observable<any> {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/startExam`, data, { headers: this.token()});
   }
+  examId(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/exam_id`, data, { headers: this.token()});
+  }
   endtime(data: any): Observable<any> {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/endexam`, data, { headers: this.token()});
   }
   starttime(data: any): Observable<any> {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/startexam`, data, { headers: this.token()});
+  }
+  saveAnswer(data:any): Observable<any>{
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/setAnswer`, data, { headers: this.token()});
+  }
+  finish(data:any): Observable<any>{
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/finish`, data, { headers: this.token()});
+  }
+  degree(data:any): Observable<any>{
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/degree`, data, { headers: this.token()});
   }
 }

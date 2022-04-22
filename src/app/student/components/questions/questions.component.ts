@@ -17,18 +17,12 @@ export class QuestionsComponent implements OnInit {
   complete_question: any;
   finshed: any[] = [];
   question_number: number = 0;
-  allAnswers: any;
   length: any;
+  type: string = '';
+  id: any;
   constructor(private _QuestionsService: QuestionsService, private _Router: Router, private _ExamService: ExamService) { }
   ngOnInit(): void {
-    setInterval(() => { this.time() }, 2000);
-    if (localStorage.getItem("answers") == null) {
-      this.allAnswers = [];
-    }
-    else {
-      this.allAnswers = localStorage.getItem("answers");
-      this.allAnswers = JSON.parse(this.allAnswers);
-    }
+    setInterval(() => { this.time() }, 1000);
     this.length = JSON.parse(localStorage.getItem("Exam_questions") || '{}').length;
     if (this.length != 0) {
       this.getQuestion();
@@ -42,6 +36,8 @@ export class QuestionsComponent implements OnInit {
         this.tf_question = response.data;
         this.complete_question = null;
         this.mcq_question = null;
+        this.type = 'tf';
+        this.id = this.tf_question.id;
         console.log(this.tf_question)
       })
     }
@@ -50,6 +46,8 @@ export class QuestionsComponent implements OnInit {
         this.complete_question = response.data;
         this.tf_question = null;
         this.mcq_question = null;
+        this.type = 'complete';
+        this.id = this.complete_question.id;
         console.log(this.complete_question)
       })
     }
@@ -58,6 +56,8 @@ export class QuestionsComponent implements OnInit {
         this.mcq_question = response.data;
         this.tf_question = null;
         this.complete_question = null;
+        this.type = 'mcq';
+        this.id = this.mcq_question.id;
         console.log(this.mcq_question)
       })
     }
@@ -74,32 +74,72 @@ export class QuestionsComponent implements OnInit {
       $('.time').html(`<p class="fs-3 time">${hours}:${minutes}:${seconds}</p>`);
     }
     else {
-      localStorage.removeItem("distance");
-      localStorage.removeItem("start_time");
-      localStorage.removeItem("end_time");
-      localStorage.removeItem("Exam_questions");
-      this._Router.navigate(['/home']);
+    this.finish();
     }
   }
   next() {
-    var answer = {
-      'answer': $('input[name="answer"]:checked').val()
+    if (this.type == 'complete') {
+      var answer = {
+        'exam_id': Number(localStorage.getItem('examId')),
+        'student_id': JSON.parse(localStorage.getItem("user") || '{}').id,
+        'type': this.type,
+        'question_id': Number(this.id),
+        'answer': $('#exampleFormControlTextarea6').val(),
+        'grade': 0
+      }
+    } else {
+      var answer = {
+        'exam_id': Number(localStorage.getItem('examId')),
+        'student_id': JSON.parse(localStorage.getItem("user") || '{}').id,
+        'type': this.type,
+        'question_id': Number(this.id),
+        'answer': $('input[name="answer"]:checked').val(),
+        'grade': 0
+      }
     }
-    this.allAnswers.push(answer);
-    localStorage.setItem("answers", JSON.stringify(this.allAnswers));
-    this.allQuestions = JSON.parse(localStorage.getItem("Exam_questions") || '{}');
-    var deleted = this.allQuestions.shift();
-    this.finshed.push(deleted)
-    localStorage.setItem("Exam_questions", JSON.stringify(this.allQuestions))
-    if (JSON.parse(localStorage.getItem("Exam_questions") || '{}').length == 0) {
-      this.length = JSON.parse(localStorage.getItem("Exam_questions") || '{}').length;
-    }
-    else {
-      console.log(this.allQuestions)
-      this.getQuestion();
-    }
+    console.log(answer)
+    this._ExamService.saveAnswer(answer).subscribe((response) => {
+      if (response.data == 'Record added successfully!') {
+        this.allQuestions = JSON.parse(localStorage.getItem("Exam_questions") || '{}');
+        var deleted = this.allQuestions.shift();
+        this.finshed.push(deleted)
+        localStorage.setItem("Exam_questions", JSON.stringify(this.allQuestions))
+        if (JSON.parse(localStorage.getItem("Exam_questions") || '{}').length == 0) {
+          this.length = JSON.parse(localStorage.getItem("Exam_questions") || '{}').length;
+        }
+        else {
+          console.log(this.allQuestions)
+          this.getQuestion();
+          console.log(answer);
+        }
+      }
+    })
   }
   finish() {
-    console.log(this.finshed);
+    var finish = {
+      'exam_id': Number(localStorage.getItem('examId')),
+      'student_id': JSON.parse(localStorage.getItem("user") || '{}').id,
+    }
+    this._ExamService.finish(finish).subscribe((res) => {
+      if (res.data != null) {
+        localStorage.setItem('grade', JSON.stringify(res.data));
+        var grade = {
+          'exam_id': Number(localStorage.getItem('examId')),
+          'student_id': JSON.parse(localStorage.getItem("user") || '{}').id,
+          'degree': JSON.parse(localStorage.getItem("grade") || '{}').myGrade
+        }
+        this._ExamService.degree(grade).subscribe((response) => {
+          if (response.data == 'Record added successfully!') {
+            this._Router.navigate(['/student/exam/examGrade']);
+            localStorage.removeItem('end_time');
+            localStorage.removeItem('start_time');
+            localStorage.removeItem('Exam_questions');
+            localStorage.removeItem('distance');
+          }
+        })
+      }
+    })
+
+
   }
 }

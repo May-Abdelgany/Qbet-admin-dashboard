@@ -32,6 +32,9 @@ export class ExamComponent implements OnInit {
     }
   }
   doExam(codeform: FormGroup) {
+    this._ExamService.examId(codeform.value).subscribe((Res) => {
+      localStorage.setItem('examId', Res);
+    })
     this._ExamService.doExam(codeform.value).subscribe((response) => {
       localStorage.setItem('Exam_questions', JSON.stringify(response));
       this._ExamService.endtime(codeform.value).subscribe((res) => {

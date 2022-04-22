@@ -5,13 +5,15 @@ import { CommonModule } from '@angular/common';
 import { StudentRoutingModule } from './student-routing.module';
 import { ExamComponent } from './components/exam/exam.component';
 import { QuestionsComponent } from './components/questions/questions.component';
+import { GradeComponent } from './components/grade/grade.component';
 
 
 
 @NgModule({
   declarations: [
     ExamComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    GradeComponent
   ],
   imports: [
     CommonModule,
