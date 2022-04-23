@@ -1,69 +1,61 @@
 <section>
-  <div class="container py-3">
-    <div class="row">
-      <div class="col-md-8 offset-md-2 bg-primary">
-        <div>
-          <form class="bg-white m-5 p-5" [formGroup]="formExam" (ngSubmit)="add(formExam)">
-            <h2 class="text-center fw-bold">Add Exam</h2>
-            <div class="mb-3">
-              <label for="name" class="form-label">name</label>
-              <input type="text"  class="form-control"  id="name" formControlName="name">
-              <p class="text-danger"
-              *ngIf="formExam.controls['name'].touched && formExam.controls['name'].errors?.['required']">
-              name is required</p>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 bg-primary">
+                <div>
+                    <form class="bg-white m-5 p-5" [formGroup]="formExam" (ngSubmit)="add(formExam)">
+                        <h2 class="text-center fw-bold">Add Exam</h2>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">name</label>
+                            <input type="text" class="form-control" id="name" formControlName="name">
+                            <p class="text-danger" *ngIf="formExam.controls['name'].touched && formExam.controls['name'].errors?.['required']">
+                                name is required</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="code" class="form-label">code</label>
+                            <input type="number" class="form-control" id="code" formControlName="code">
+                            <p class="text-danger" *ngIf="formExam.controls['code'].touched && formExam.controls['code'].errors?.['required']">
+                                code is required</p>
+                            <p class="text-danger" *ngIf="formExam.controls['code'].touched && formExam.controls['code'].errors?.['pattern']">
+                                min code is 5 numbers and max 20 number</p>
+                            <p class="text-danger">{{errorMessage}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tf" class="form-label">number of question tf</label>
+                            <input type="number" class="form-control" id="tf" formControlName="number_of_question_tf">
+                            <p class="text-danger" *ngIf="formExam.controls['number_of_question_tf'].touched && formExam.controls['number_of_question_tf'].errors?.['required']">
+                                degree is required</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="complete" class="form-label">number of question complete</label>
+                            <input type="number" class="form-control" id="complete" formControlName="number_of_question_complete">
+                            <p class="text-danger" *ngIf="formExam.controls['number_of_question_complete'].touched && formExam.controls['number_of_question_complete'].errors?.['required']">
+                                degree is required</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mcq" class="form-label">number of question mcq</label>
+                            <input type="number" class="form-control" id="mcq" formControlName="number_of_question_static_mcq">
+                            <p class="text-danger" *ngIf="formExam.controls['number_of_question_static_mcq'].touched && formExam.controls['number_of_question_static_mcq'].errors?.['required']">
+                                degree is required</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time_of_exam" class="form-label">time of exam</label>
+                            <input type="time" class="form-control" id="time_of_exam" formControlName="time_of_exam">
+                            <p class="text-danger" *ngIf="formExam.controls['time_of_exam'].touched && formExam.controls['time_of_exam'].errors?.['required']">
+                                time of exam is required</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">end time</label>
+                            <input type="time" class="form-control" id="end_time" formControlName="end_time">
+                            <p class="text-danger" *ngIf="formExam.controls['end_time'].touched && formExam.controls['end_time'].errors?.['required']">
+                                end time is required</p>
+                        </div>
+                        <div class="mt-5">
+                            <button type="submit" class="btn btn-primary  m-auto d-block" [disabled]="formExam.invalid">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-              <label for="code" class="form-label">code</label>
-              <input type="number" class="form-control" id="code" formControlName="code">
-              <p class="text-danger"
-              *ngIf="formExam.controls['code'].touched && formExam.controls['code'].errors?.['required']">
-              code is required</p>
-              <p class="text-danger"
-              *ngIf="formExam.controls['code'].touched && formExam.controls['code'].errors?.['pattern']">
-              min code is 5 numbers and max 20 number</p>
-              <p class="text-danger">{{errorMessage}}</p>
-            </div>
-            <div class="mb-3">
-              <label for="tf" class="form-label">number of question tf</label>
-              <input type="number" class="form-control" id="tf" formControlName="number_of_question_tf">
-              <p class="text-danger"
-              *ngIf="formExam.controls['number_of_question_tf'].touched && formExam.controls['number_of_question_tf'].errors?.['required']">
-              degree is required</p>
-            </div>
-            <div class="mb-3">
-              <label for="complete" class="form-label">number of question complete</label>
-              <input type="number" class="form-control" id="complete" formControlName="number_of_question_complete">
-              <p class="text-danger"
-              *ngIf="formExam.controls['number_of_question_complete'].touched && formExam.controls['number_of_question_complete'].errors?.['required']">
-              degree is required</p>
-            </div>
-            <div class="mb-3">
-              <label for="mcq" class="form-label">number of question mcq</label>
-              <input type="number" class="form-control" id="mcq" formControlName="number_of_question_static_mcq">
-              <p class="text-danger"
-              *ngIf="formExam.controls['number_of_question_static_mcq'].touched && formExam.controls['number_of_question_static_mcq'].errors?.['required']">
-              degree is required</p>
-            </div>
-            <div class="mb-3">
-              <label for="time" class="form-label">end time</label>
-              <input type="time" class="form-control" id="end_time" formControlName="end_time">
-              <p class="text-danger"
-              *ngIf="formExam.controls['end_time'].touched && formExam.controls['end_time'].errors?.['required']">
-              end time is required</p>
-            </div>
-            <div class="mb-3">
-              <label for="time_of_exam" class="form-label">time of exam</label>
-              <input type="time" class="form-control" id="time_of_exam" formControlName="time_of_exam">
-              <p class="text-danger"
-              *ngIf="formExam.controls['time_of_exam'].touched && formExam.controls['time_of_exam'].errors?.['required']">
-              time of exam is required</p>
-            </div>
-            <div class="mt-5">
-              <button type="submit" class="btn btn-primary  m-auto d-block" [disabled]="formExam.invalid">Submit</button>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </section>

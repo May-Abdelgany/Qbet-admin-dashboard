@@ -1,12 +1,12 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-grade',
   templateUrl: './grade.component.html',
   styleUrls: ['./grade.component.scss']
 })
-export class GradeComponent implements OnInit {
+export class GradeComponent implements OnInit, OnDestroy {
 
   constructor(private _Router: Router) { }
   $allgrade: any;
@@ -18,5 +18,12 @@ export class GradeComponent implements OnInit {
     this._Router.navigate(['/home']);
     localStorage.removeItem('grade');
     localStorage.removeItem('examId');
+  }
+  ngOnDestroy() {
+    var user = localStorage.getItem('user');
+    localStorage.clear();
+    if (user != null) {
+      localStorage.setItem('user', user);
+    }
   }
 }

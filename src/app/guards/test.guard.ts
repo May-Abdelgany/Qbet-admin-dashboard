@@ -11,8 +11,7 @@ export class TestGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.object=JSON.parse(localStorage.getItem("examId")|| '{}');
-      if(this.object=='{}'){
+      if(localStorage.getItem("examId")!=null){
         return true;
       }
       else{

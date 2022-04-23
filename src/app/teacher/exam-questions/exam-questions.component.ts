@@ -11,7 +11,7 @@ export class ExamQuestionsComponent implements OnInit {
   examMcq: any[] = [];
   examtf: any[] = [];
   examcomplete: any[] = [];
-  count: any;
+  count: number=0;
   exam_id: any;
   constructor(private _ExamService: ExamService, private _QuestionsService: QuestionsService) { }
 
@@ -24,43 +24,43 @@ export class ExamQuestionsComponent implements OnInit {
 
   showMcq() {
     this._ExamService.examMcq(this.exam_id).subscribe((response) => {
-      this.count = response.length;
       for (let i = 0; i < response.length; i++) {
         this._QuestionsService.showmcqQuestion(response[i].smcq_id).subscribe((res) => {
           if (res.data != null) {
             this.examMcq.push(res.data)
           }
-          console.log(this.examMcq);
         })
       }
+      console.log(this.examMcq);
+      this.count += response.length;
     })
   }
   showtf() {
     this._ExamService.examtf(this.exam_id).subscribe((response) => {
-      this.count += response.length;
+
       for (let i = 0; i < response.length; i++) {
         this._QuestionsService.showTFQuestion(response[i].t_f_id).subscribe((res) => {
           if (res.data != null) {
             this.examtf.push(res.data)
           }
-          console.log(this.examtf);
         })
       }
-
+      console.log(this.examtf);
+      this.count+=response.length;
     })
   }
   showcomplete() {
     this._ExamService.examcomplete(this.exam_id).subscribe((response) => {
-      this.count += response.length;
+
       for (let i = 0; i < response.length; i++) {
         this._QuestionsService.showcompleteQuestion(response[i].complete_id).subscribe((res) => {
           if (res.data != null) {
-            this.examcomplete.push(res.data)
+            this.examcomplete.push(res.data);
           }
-          console.log(this.examcomplete);
-          console.log(this.count);
         })
       }
+      console.log(this.examcomplete);
+      this.count+=response.length;
     })
   }
 }

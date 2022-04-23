@@ -33,23 +33,38 @@ export class ExamComponent implements OnInit {
   }
   doExam(codeform: FormGroup) {
     this._ExamService.examId(codeform.value).subscribe((Res) => {
-      localStorage.setItem('examId', Res);
+      var id = Res;
+      localStorage.setItem('examId', id);
+      var access = {
+        'student_id': JSON.parse(localStorage.getItem('user') || '{}').id,
+        'exam_id': id
+      }
+      this._ExamService.doExam(codeform.value).subscribe((response) => {
+        this._ExamService.access(access).subscribe(() => {
+          localStorage.setItem('Exam_questions', JSON.stringify(response));
+          this._ExamService.endtime(codeform.value).subscribe((res) => {
+            localStorage.setItem('end_time', res.data);
+            this._ExamService.starttime(codeform.value).subscribe((res) => {
+              localStorage.setItem('start_time', res.data);
+              this.distance();
+              this._Router.navigate(['student/exam/questions']);
+            })
+          })
+
+        }, (error) => {
+          this.errorMessage = error.error.error;
+          setTimeout(() => {
+            this.errorMessage = '';
+          }, 3000);
+        })
+      },
+        (error) => {
+          this.errorMessage = error.error.error;
+          setTimeout(() => {
+            this.errorMessage = '';
+          }, 3000);
+        })
     })
-    this._ExamService.doExam(codeform.value).subscribe((response) => {
-      localStorage.setItem('Exam_questions', JSON.stringify(response));
-      this._ExamService.endtime(codeform.value).subscribe((res) => {
-        localStorage.setItem('end_time', res.data);
-      })
-      this._ExamService.starttime(codeform.value).subscribe((res) => {
-        localStorage.setItem('start_time', res.data);
-        this.distance();
-        this._Router.navigate(['student/exam/questions']);
-      })
-    }, (error) => {
-      this.errorMessage = error.error.error;
-      setTimeout(() => {
-        this.errorMessage = '';
-      }, 3000);
-    })
+
   }
 }

@@ -11,8 +11,7 @@ export class GradeGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.object=JSON.parse(localStorage.getItem('grade')|| '{}');
-      if(this.object=='{}'){
+      if(localStorage.getItem("grade")!=null){
         return true;
       }
       else{
