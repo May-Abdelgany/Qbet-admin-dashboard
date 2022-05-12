@@ -6,6 +6,7 @@ import { StudentRoutingModule } from './student-routing.module';
 import { ExamComponent } from './components/exam/exam.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { GradeComponent } from './components/grade/grade.component';
+import { MyCoursesComponent } from './components/my-courses/my-courses.component';
 
 
 
@@ -13,7 +14,8 @@ import { GradeComponent } from './components/grade/grade.component';
   declarations: [
     ExamComponent,
     QuestionsComponent,
-    GradeComponent
+    GradeComponent,
+    MyCoursesComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,28 @@
+<section>
+    <div class="container my-5">
+        <h2 class="text-center fw-bold mb-5">All students do exam</h2>
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            <p class="text-center">{{errorMessage}}</p>
+        </div>
+        <table class="table table-bordered text-center" *ngIf="!errorMessage">
+            <thead class="bg-primary">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">first name</th>
+                    <th scope="col">last name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">do exam again</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of allStudents ;let i=index">
+                    <td>{{student[0].id}}</td>
+                    <td>{{student[0].firstname}}</td>
+                    <td>{{student[0].lastname}}</td>
+                    <td>{{student[0].email}}</td>
+                    <td><button class="btn btn-outline-primary" (click)="doAgain(i)">do exam again</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>

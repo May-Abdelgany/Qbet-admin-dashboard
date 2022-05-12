@@ -45,7 +45,13 @@ export class CourseService {
   getMyCourses(data:any): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/teacher/myCourses/${data}`, { headers: this.token() });
   }
+  getStudentCourses(data:any): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/student/myCourses/${data}`, { headers: this.token() });
+  }
   showMyCourses(data:any): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/courses/${data}`, { headers: this.token() });
+  }
+  studentInCourse(data:any): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/course/student/${data}`, { headers: this.token() });
   }
 }

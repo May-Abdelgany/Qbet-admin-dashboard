@@ -1,66 +1,72 @@
 <div class="flex-column  bg-light vh-100 position-fixed sidebar" style="width: 100px;" *ngIf="islogin">
-  <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-    <li class="nav-item">
-      <a class="nav-link py-3 border-bottom" routerLink="/home" routerLinkActive="bg-primary text-white">
-        <i class="fa fa-home fs-4"></i>
-        <small>Home</small>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='admin'">
-      <a routerLink="/admin/showAdmins" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-users-gear fs-4"></i>
-        <small>Admin</small> </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='admin'">
-      <a routerLink="/admin/showteachers" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-user-pen fs-4"></i>
-        <small>Teacher</small>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='admin'">
-      <a routerLink="admin/showstudents" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-user fs-4"></i>
-        <small>Student</small>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='admin'">
-      <a routerLink="/admin/showcourses" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-book fs-4"></i>
-        <small>course</small>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='admin'">
-      <a routerLink="/admin/enrolls/students" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-cloud-arrow-down fs-4"></i>
-        <small>enroll student</small>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='admin'">
-      <a routerLink="/admin/enrolls/teachers" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-cloud-arrow-down fs-4"></i>
-        <small>enroll Teacher</small>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='teacher'">
-      <a routerLink="/teacher/myCourses" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-book fs-4"></i>
-        <small>my courses</small>
-      </a>
-    </li>
-    <li class="nav-item" *ngIf="role=='student'">
-      <a routerLink="/student/exam" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
-        <i class="fa-solid fa-book fs-4"></i>
-        <small>Do Exam</small>
-      </a>
-    </li>
-    <li>
-      <a class="nav-link py-3 border-bottom " (click)="logout()">
-        <i class="fa-solid fa-right-from-bracket fs-4"></i>
-        <small>Log out</small>
-      </a>
-    </li>
-  </ul>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+            <a class="nav-link py-3 border-bottom" routerLink="/home" routerLinkActive="bg-primary text-white">
+                <i class="fa fa-home fs-4"></i>
+                <small>Home</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='admin'">
+            <a routerLink="/admin/showAdmins" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-users-gear fs-4"></i>
+                <small>Admin</small> </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='admin'">
+            <a routerLink="/admin/showteachers" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-user-pen fs-4"></i>
+                <small>Teacher</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='admin'">
+            <a routerLink="admin/showstudents" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-user fs-4"></i>
+                <small>Student</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='admin'">
+            <a routerLink="/admin/showcourses" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-book fs-4"></i>
+                <small>course</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='admin'">
+            <a routerLink="/admin/enrolls/students" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-cloud-arrow-down fs-4"></i>
+                <small>enroll student</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='admin'">
+            <a routerLink="/admin/enrolls/teachers" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-cloud-arrow-down fs-4"></i>
+                <small>enroll Teacher</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='teacher'">
+            <a routerLink="/teacher/myCourses" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-book fs-4"></i>
+                <small>my courses</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='student'">
+            <a routerLink="/student/exam" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-book fs-4"></i>
+                <small>Do Exam</small>
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="role=='student'">
+            <a routerLink="/student/myCourses" routerLinkActive="bg-primary text-white" class="nav-link py-3 border-bottom">
+                <i class="fa-solid fa-book fs-4"></i>
+                <small>my courses</small>
+            </a>
+        </li>
+        <li>
+            <a class="nav-link py-3 border-bottom " (click)="logout()">
+                <i class="fa-solid fa-right-from-bracket fs-4"></i>
+                <small>Log out</small>
+            </a>
+        </li>
+    </ul>
 </div>
 <div *ngIf="islogin">
-  <i class="position-fixed menue bg-white p-2 fa-solid fa-bars fs-3" (click)="toggle()"></i>
+    <i class="position-fixed menue bg-white p-2 fa-solid fa-bars fs-3" (click)="toggle()"></i>
 </div>

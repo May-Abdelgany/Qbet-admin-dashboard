@@ -7,7 +7,6 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class StudentService {
-
   constructor(private _HttpClient: HttpClient, private _AuthService: AuthService) { }
   studentId: any;
   token() {
@@ -38,5 +37,8 @@ export class StudentService {
   }
   enrollStudent(data: any): Observable<any> {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/enroll/student`, data, { headers: this.token() });
+  }
+  Get_Id(data:any): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/student/${data}`, { headers: this.token() });
   }
 }

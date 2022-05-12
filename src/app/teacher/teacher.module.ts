@@ -19,6 +19,9 @@ import { AddExamComponent } from './add-exam/add-exam.component';
 import { UpdateExamComponent } from './update-exam/update-exam.component';
 import { GradesComponent } from './grades/grades.component';
 import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
+import { DetailsComponent } from './details/details.component';
+import { StudentsComponent } from './students/students.component';
+import { StudentDoExamComponent } from './student-do-exam/student-do-exam.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { ExamQuestionsComponent } from './exam-questions/exam-questions.componen
     AddExamComponent,
     UpdateExamComponent,
     GradesComponent,
-    ExamQuestionsComponent
+    ExamQuestionsComponent,
+    DetailsComponent,
+    StudentsComponent,
+    StudentDoExamComponent
   ],
   imports: [
     CommonModule,

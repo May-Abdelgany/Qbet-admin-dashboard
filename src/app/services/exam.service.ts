@@ -9,7 +9,6 @@ import { Injectable } from '@angular/core';
 export class ExamService {
   exam_id: any;
   constructor(private _AuthService: AuthService, private _HttpClient: HttpClient) {
-    this.exam_id = localStorage.getItem('examId');
   }
   token() {
     let token = this._AuthService.token();
@@ -32,12 +31,14 @@ export class ExamService {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/exam/${data}`, { headers: this.token() });
   }
   updateExam(data: any): Observable<any> {
+    this.exam_id = localStorage.getItem('examId');
     return this._HttpClient.put(`http://127.0.0.1:8000/api/exam/${this.exam_id}`, data, { headers: this.token() });
   }
   showGrades(data: any): Observable<any> {
-    return this._HttpClient.get(`http://127.0.0.1:8000/api/degree/${data}`, { headers: this.token() });
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/degree`,data, { headers: this.token() });
   }
   exportGrades(): Observable<Blob> {
+    this.exam_id = localStorage.getItem('examId');
     return this._HttpClient.get(`http://127.0.0.1:8000/api/export/degree/${this.exam_id}`, { headers: this.token(), responseType: 'blob' });
   }
   setQuestion(id: any): Observable<any> {
@@ -78,6 +79,15 @@ export class ExamService {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/finish`, data, { headers: this.token() });
   }
   degree(data: any): Observable<any> {
-    return this._HttpClient.post(`http://127.0.0.1:8000/api/degree`, data, { headers: this.token() });
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/degrees`, data, { headers: this.token() });
+  }
+  student_id(data:any): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/student_id/${data}`, { headers: this.token() });
+  }
+  do_exam(data:any): Observable<any> {
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/exam/dostudent/${data}`, { headers: this.token() });
+  }
+  do_again(data:any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/doagain`,data, { headers: this.token() });
   }
 }

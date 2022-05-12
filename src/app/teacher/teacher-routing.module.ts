@@ -1,3 +1,4 @@
+import { StudentDoExamComponent } from './student-do-exam/student-do-exam.component';
 import { ExamQuestionsComponent } from './exam-questions/exam-questions.component';
 import { GradesComponent } from './grades/grades.component';
 import { UpdateExamComponent } from './update-exam/update-exam.component';
@@ -17,6 +18,9 @@ import { MyCoursesComponent } from './my-courses/my-courses.component';
 import { SmcqQuestionsComponent } from './smcq-questions/smcq-questions.component';
 import { DmcqQuestionsComponent } from './dmcq-questions/dmcq-questions.component';
 import { AddTFQuestionComponent } from './add-tfquestion/add-tfquestion.component';
+import { GradeComponent } from '../student/components/grade/grade.component';
+import { DetailsComponent } from './details/details.component';
+import { StudentsComponent } from './students/students.component';
 
 
 const routes: Routes = [
@@ -36,6 +40,9 @@ const routes: Routes = [
   { path: "updateExam", canActivate: [AuthGuard], component:UpdateExamComponent},
   { path: "grades", canActivate: [AuthGuard], component:GradesComponent},
   { path: "exam/questions", canActivate: [AuthGuard], component:ExamQuestionsComponent},
+  { path: "exam/student/details", canActivate: [AuthGuard], component:DetailsComponent},
+  { path: "course/student", canActivate: [AuthGuard], component:StudentsComponent},
+  { path: "exam/students", canActivate: [AuthGuard], component:StudentDoExamComponent}
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

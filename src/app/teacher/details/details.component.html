@@ -1,0 +1,26 @@
+<section>
+    <div class="container-fluid my-5">
+        <h2 class="text-center fw-bold mb-5">All details of student in this exam</h2>
+        <table class="table table-bordered text-center">
+            <thead class="bg-primary">
+                <tr>
+                    <th scope="col">type</th>
+                    <th scope="col">question</th>
+                    <th scope="col">Q_answer</th>
+                    <th scope="col">Q-grade</th>
+                    <th scope="col">Y_answer</th>
+                    <th scope="col">Y_grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of row; let i=index;">
+                    <td scope="col"> {{r[0]}}</td>
+                    <td scope="col"> {{r[1]}}</td>
+                    <td scope="col"> {{r[2]}}</td>
+                    <td scope="col"> {{r[3]}}</td>
+                    <td scope="col"> {{r[4]}}</td>
+                    <td scope="col"> {{r[5]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

@@ -1,0 +1,21 @@
+<section>
+    <div class="container my-5">
+        <h2 class="text-center fw-bold mb-5">All students in this course</h2>
+        <table class="table table-bordered text-center">
+            <thead class="bg-primary">
+                <tr>
+                    <th scope="col">first name</th>
+                    <th scope="col">last name</th>
+                    <th scope="col">email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of allstudents ;let i=index">
+                    <td>{{student[0].firstname}}</td>
+                    <td>{{student[0].lastname}}</td>
+                    <td>{{student[0].email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,4 +1,4 @@
-<section class="vh-100">
+<section>
     <div class="container py-2">
         <div class="d-flex justify-content-between mt-3">
             <div class="logo px-5">
@@ -8,16 +8,19 @@
         </div>
         <div class="bg-white mt-5">
             <h1 class="pt-5 pb-3 text-center text-primary fw-bold fs-1 ">Exam</h1>
-            <p class="ext-center text-danger fw-bold text-center" *ngIf="length!=0 && length!=1">the number of remaining questions in the exam is {{length-1}}</p>
-            <p class="ext-center text-danger fw-bold text-center" *ngIf="length!=0">this last question in the exam</p>
+            <p class="ext-center text-danger fw-bold text-center" *ngIf="length !=0">the number of remaining questions in the exam is {{length-1}}</p>
             <div class="py-3 ">
                 <div class="w-75 m-auto " *ngIf="complete_question && length!=0 ">
                     <div class="d-flex">
                         <p class="fw-bold fa-2x">Q)</p> &nbsp;
-                        <h3 class="fw-bold mt-2"> {{complete_question.question}}</h3>
+                        <h3 class="fw-bold mt-2">{{complete_question.question}}</h3>
                     </div>
-                    <div class="form-group shadow-textarea px-5 m-auto ">
-                        <textarea class="form-control z-depth-1 mt-2 " id="exampleFormControlTextarea6" rows="3 " placeholder="Write answer here... "></textarea>
+                    <div class="form-group shadow-textarea px-5 m-auto mb-3">
+                        <textarea class="form-control z-depth-1 mt-2 correct" id="exampleFormControlTextarea6" rows="3 " placeholder="Write answer here between (answer) ... " spellcheck="true" (keyup)="onKey($event)" value="null"></textarea>
+                    </div>
+                    <div class="alert alert-danger text-center mx-5" *ngFor="let correct of allCorrect">
+                        <h4>correct words</h4>
+                        <p>{{correct}}</p>
                     </div>
                     <button type="submit " class="btn btn-outline-primary d-block m-auto my-3 next " (click)="next() ">Next</button>
                 </div>

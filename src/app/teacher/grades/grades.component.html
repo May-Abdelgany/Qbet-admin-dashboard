@@ -1,21 +1,30 @@
 <section>
-  <div class="container my-5">
-    <h2 class="text-center fw-bold mb-5">All Grades in this exam</h2>
-    <button class="btn btn-primary mb-4 float-end me-2" (click)="export()">export grades in file</button>
-    <table class="table table-bordered text-center">
-      <thead class="bg-primary">
-        <tr>
-          <th scope="col">first name</th>
-          <th scope="col">last name</th>
-          <th scope="col">Grade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of allData; let i=index;">
-          <td>{{data.fname}}</td>
-          <td>{{data.lname}}</td>
-          <td>{{data.grade}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="container my-5">
+        <h2 class="text-center fw-bold mb-5">All Grades in this exam</h2>
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+            <p class="text-center">{{errorMessage}}</p>
+        </div>
+        <button class="btn btn-primary mb-4 float-end me-2 " (click)="export()" *ngIf="!errorMessage">export grades in file</button>
+        <table class="table table-bordered text-center">
+            <thead class="bg-primary">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">first name</th>
+                    <th scope="col">last name</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Total Grade</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of allData; let i=index;">
+                    <td>{{data[0]}}</td>
+                    <td>{{data[1]}}</td>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[3]}}</td>
+                    <td>{{data[4]}}</td>
+                    <td><button class="btn btn-outline-primary" (click)="getId(i)" routerLink="/teacher/exam/student/details">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

@@ -17,7 +17,7 @@ export class ExamComponent implements OnInit {
   constructor(private _ExamService: ExamService, private _Router: Router) { }
 
   ngOnInit(): void {
-
+       localStorage.removeItem('distance')
   }
   distance() {
     var now = localStorage.getItem('start_time');

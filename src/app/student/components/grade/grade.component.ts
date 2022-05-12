@@ -16,8 +16,6 @@ export class GradeComponent implements OnInit, OnDestroy {
   }
   home() {
     this._Router.navigate(['/home']);
-    localStorage.removeItem('grade');
-    localStorage.removeItem('examId');
   }
   ngOnDestroy() {
     var user = localStorage.getItem('user');
