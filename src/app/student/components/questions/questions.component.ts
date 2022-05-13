@@ -81,13 +81,13 @@ export class QuestionsComponent implements OnInit {
   }
   next() {
     if (this.type == 'complete') {
-      var complete=$('#exampleFormControlTextarea6').val();
+      var complete = $('#exampleFormControlTextarea6').val();
       var answer = {
         'exam_id': Number(localStorage.getItem('examId')),
         'student_id': JSON.parse(localStorage.getItem("user") || '{}').id,
         'type': this.type,
         'question_id': Number(this.id),
-        'answer': complete.substring(1,complete.length-1),
+        'answer': complete.substring(1, complete.length - 1),
         'grade': 0
       }
     } else {

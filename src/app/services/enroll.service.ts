@@ -24,16 +24,16 @@ export class EnrollService {
   getStudents(): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/course/students/${this.courseId}`, { headers: this.token() });
   }
-  EnrollId(data:any):Observable<any> {
+  EnrollId(data: any): Observable<any> {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/enroll/getId`, data, { headers: this.token() });
   }
-  DeleteEnroll(data:any): Observable<any> {
-    return this._HttpClient.delete(`http://127.0.0.1:8000/api/enroll/student/${data}`,{ headers: this.token() });
+  DeleteEnroll(data: any): Observable<any> {
+    return this._HttpClient.delete(`http://127.0.0.1:8000/api/enroll/student/${data}`, { headers: this.token() });
   }
-  EnrollTeacherId(data:any):Observable<any> {
+  EnrollTeacherId(data: any): Observable<any> {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/enroll/getenrollId`, data, { headers: this.token() });
   }
-  DeleteEnrollTeacher(data:any):Observable<any>{
-    return this._HttpClient.delete(`http://127.0.0.1:8000/api/enroll/teacher/${data}`,{ headers: this.token() });
+  DeleteEnrollTeacher(data: any): Observable<any> {
+    return this._HttpClient.delete(`http://127.0.0.1:8000/api/enroll/teacher/${data}`, { headers: this.token() });
   }
 }
