@@ -35,7 +35,7 @@ export class UpdateCompleteQuestionComponent implements OnInit {
   }
   edit(formQuestion:any){
     var data=formQuestion.value;
-    this._QuestionsService.updateTFQuestion(data).subscribe((response)=>{
+    this._QuestionsService.updatecompleteQuestion(data).subscribe((response)=>{
       if(response.data=='Record updated successfully!'){
         this._Router.navigate(['teacher/complete-questions']);
       }

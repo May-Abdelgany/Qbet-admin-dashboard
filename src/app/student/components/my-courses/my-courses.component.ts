@@ -26,6 +26,7 @@ export class MyCoursesComponent implements OnInit {
 
   }
   courses_id() {
+
     this._CourseService.getStudentCourses(this.student_id).subscribe((response) => {
       this.course_id = response;
       console.log(this.course_id)

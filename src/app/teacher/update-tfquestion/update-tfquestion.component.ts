@@ -26,6 +26,7 @@ export class UpdateTFQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.question_id = localStorage.getItem('questionId');
+    console.log(this.question_id)
     this._QuestionsService.showTFQuestion(this.question_id).subscribe((response) => {
       if (response.data != null) {
         this.questionData = response.data;

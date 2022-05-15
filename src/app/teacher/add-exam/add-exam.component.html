@@ -20,23 +20,95 @@
                                 min code is 5 numbers and max 20 number</p>
                             <p class="text-danger">{{errorMessage}}</p>
                         </div>
-                        <div class="mb-3">
-                            <label for="tf" class="form-label">number of question tf</label>
-                            <input type="number" class="form-control" id="tf" formControlName="number_of_question_tf">
-                            <p class="text-danger" *ngIf="formExam.controls['number_of_question_tf'].touched && formExam.controls['number_of_question_tf'].errors?.['required']">
-                                degree is required</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="tf" class="form-label">number tf easy</label>
+                                        <input type="number" class="form-control" id="tf-easy" formControlName="number_of_question_tf_easy">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_tf_easy'].touched && formExam.controls['number_of_question_tf_easy'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="tf" class="form-label">number tf medium</label>
+                                        <input type="number" class="form-control" id="tf_medium" formControlName="number_of_question_tf_medium">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_tf_medium'].touched && formExam.controls['number_of_question_tf_medium'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="tf" class="form-label">number tf difficult</label>
+                                        <input type="number" class="form-control" id="tf_difficult" formControlName="number_of_question_tf_difficult">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_tf_difficult'].touched && formExam.controls['number_of_question_tf_difficult'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="complete" class="form-label">number complete easy</label>
+                                        <input type="number" class="form-control" id="complete_easy" formControlName="number_of_question_complete_easy">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_complete_easy'].touched && formExam.controls['number_of_question_complete_easy'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="complete" class="form-label">number complete medium</label>
+                                        <input type="number" class="form-control" id="complete_medium" formControlName="number_of_question_complete_medium">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_complete_medium'].touched && formExam.controls['number_of_question_complete_medium'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="complete" class="form-label">number complete difficult</label>
+                                        <input type="number" class="form-control" id="complete_difficult" formControlName="number_of_question_complete_difficult">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_complete_difficult'].touched && formExam.controls['number_of_question_complete_difficult'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="mcq" class="form-label">number mcq easy</label>
+                                        <input type="number" class="form-control" id="mcq_easy" formControlName="number_of_question_static_mcq_easy">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_static_mcq_easy'].touched && formExam.controls['number_of_question_static_mcq_easy'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="mcq" class="form-label">number mcq medium</label>
+                                        <input type="number" class="form-control" id="mcq_medium" formControlName="number_of_question_static_mcq_medium">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_static_mcq_medium'].touched && formExam.controls['number_of_question_static_mcq_medium'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="mcq" class="form-label">number mcq difficult</label>
+                                        <input type="number" class="form-control" id="mcq_difficult" formControlName="number_of_question_static_mcq_difficult">
+                                        <p class="text-danger" *ngIf="formExam.controls['number_of_question_static_mcq_difficult'].touched && formExam.controls['number_of_question_static_mcq_difficult'].errors?.['required']">
+                                            number of questions is required</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="complete" class="form-label">number of question complete</label>
-                            <input type="number" class="form-control" id="complete" formControlName="number_of_question_complete">
-                            <p class="text-danger" *ngIf="formExam.controls['number_of_question_complete'].touched && formExam.controls['number_of_question_complete'].errors?.['required']">
-                                degree is required</p>
-                        </div>
-                        <div class="mb-3">
-                            <label for="mcq" class="form-label">number of question mcq</label>
-                            <input type="number" class="form-control" id="mcq" formControlName="number_of_question_static_mcq">
-                            <p class="text-danger" *ngIf="formExam.controls['number_of_question_static_mcq'].touched && formExam.controls['number_of_question_static_mcq'].errors?.['required']">
-                                degree is required</p>
+                            <label for="time_of_exam" class="form-label">date</label>
+                            <input type="date" class="form-control" id="date" formControlName="date">
+                            <p class="text-danger" *ngIf="formExam.controls['date'].touched && formExam.controls['date'].errors?.['required']">
+                                date is required</p>
                         </div>
                         <div class="mb-3">
                             <label for="time_of_exam" class="form-label">time of exam</label>

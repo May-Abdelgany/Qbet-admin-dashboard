@@ -26,7 +26,7 @@ export class QuestionsService {
   }
   constructor(private _HttpClient: HttpClient, private _AuthService: AuthService) {
     this.courseId = localStorage.getItem('courseId');
-    this.questionId = localStorage.getItem('questionId');
+
   }
 
   completeQuestions(): Observable<any> {
@@ -45,6 +45,7 @@ export class QuestionsService {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/question/complete/${data}`, { headers: this.token() });
   }
   updatecompleteQuestion(data: any): Observable<any> {
+    this.questionId = localStorage.getItem('questionId');
     return this._HttpClient.put(`http://127.0.0.1:8000/api/question/complete/${this.questionId}`, data, { headers: this.token() });
   }
   TFQuestions(): Observable<any> {
@@ -63,6 +64,7 @@ export class QuestionsService {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/question/tf/${data}`, { headers: this.token() });
   }
   updateTFQuestion(data: any): Observable<any> {
+    this.questionId = localStorage.getItem('questionId');
     return this._HttpClient.put(`http://127.0.0.1:8000/api/question/tf/${this.questionId}`, data, { headers: this.token() });
   }
   McqQuestions(): Observable<any> {
@@ -81,6 +83,7 @@ export class QuestionsService {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/question/Mcq/${data}`, { headers: this.token() });
   }
   updatemcqQuestion(data: any): Observable<any> {
+    this.questionId = localStorage.getItem('questionId');
     return this._HttpClient.put(`http://127.0.0.1:8000/api/question/Mcq/${this.questionId}`, data, { headers: this.token() });
   }
 }

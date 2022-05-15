@@ -10,6 +10,8 @@ declare var $: any;
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
+  start_time: any;
+  end_time: any;
   allQuestions: any[] = [];
   next_questions: any;
   mcq_question: any;
@@ -23,13 +25,11 @@ export class QuestionsComponent implements OnInit {
   allCorrect: any[] = [];
   constructor(private _QuestionsService: QuestionsService, private _Router: Router, private _ExamService: ExamService) { }
   ngOnInit(): void {
-    setTimeout(() => {
-      this.time();
-      this.length = JSON.parse(localStorage.getItem("Exam_questions") || '{}').length;
-      if (this.length != 0) {
-        this.getQuestion();
-      }
-    }, 1000);
+    this.length = JSON.parse(localStorage.getItem("Exam_questions") || '{}').length;
+    if (this.length != 0) {
+      this.getQuestion();
+    }
+    this.time();
   }
   getQuestion() {
     this.allQuestions = JSON.parse(localStorage.getItem("Exam_questions") || '{}');
@@ -61,23 +61,32 @@ export class QuestionsComponent implements OnInit {
       })
     }
   }
-
   time() {
-    var intervalid = setInterval(() => {
-      let get_distance = Number(localStorage.getItem('distance'));
-      if (get_distance != null && get_distance != 0) {
-        get_distance--;
-        localStorage.setItem('distance', JSON.stringify(get_distance));
-        var hours = Math.floor(get_distance / (60 * 60));
-        var minutes = Math.floor((get_distance % (60 * 60)) / 60);
-        var seconds = Math.floor((get_distance % 60));
-        $('.time').html(`<p class="fs-3 time">${hours}:${minutes}:${seconds}</p>`);
-      }
-      else {
-        clearInterval(intervalid)
-        this.finish();
-      }
-    }, 1000)
+    var codeform = JSON.parse(localStorage.getItem('data') || '{}').code;
+    this._ExamService.endtime(codeform).subscribe((res1) => {
+      this.end_time = res1.data;
+      this._ExamService.starttime(codeform).subscribe((res) => {
+        this.start_time = res.data;
+        var start = this.start_time.split(':');
+        var end = this.end_time.split(':');
+        var sec_now = Number(start[0]) * 60 * 60 + Number(start[1]) * 60 + Number(start[2]);
+        var sec_end = Number(end[0]) * 60 * 60 + Number(end[1]) * 60 + Number(end[2]);
+        var distance = sec_end - sec_now;
+        var intervalid = setInterval(() => {
+          if (distance > 0) {
+            distance--;
+            var hours = Math.floor(distance / (60 * 60));
+            var minutes = Math.floor((distance % (60 * 60)) / 60);
+            var seconds = Math.floor((distance % 60));
+            $('.time').html(`<p class="fs-3 time">${hours}:${minutes}:${seconds}</p>`);
+          }
+          else {
+            clearInterval(intervalid)
+            this.finish();
+          }
+        }, 1000)
+      })
+    })
   }
   next() {
     if (this.type == 'complete') {
@@ -100,7 +109,6 @@ export class QuestionsComponent implements OnInit {
         'grade': 0
       }
     }
-    console.log(answer)
     this._ExamService.saveAnswer(answer).subscribe((response) => {
       if (response.data == 'Record added successfully!') {
         this.allQuestions = JSON.parse(localStorage.getItem("Exam_questions") || '{}');
@@ -129,10 +137,7 @@ export class QuestionsComponent implements OnInit {
         this._ExamService.degree(grade).subscribe((response) => {
           if (response.data == 'Record added successfully!') {
             this._Router.navigate(['/student/exam/examGrade']);
-            localStorage.removeItem('end_time');
-            localStorage.removeItem('start_time');
             localStorage.removeItem('Exam_questions');
-            localStorage.removeItem('distance');
           }
         })
       }
