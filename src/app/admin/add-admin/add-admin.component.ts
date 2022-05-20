@@ -15,7 +15,7 @@ export class AddAdminComponent implements OnInit {
     firstname: new FormControl(null,[Validators.required,Validators.maxLength(15),Validators.minLength(3)]),
     lastname: new FormControl(null,[Validators.required,Validators.maxLength(15),Validators.minLength(3)]),
     email: new FormControl(null,[Validators.required,Validators.email]),
-    password: new FormControl(null,[Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/)]),
+    password: new FormControl(null,[Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)]),
     role: new FormControl('admin')
   });
   errorMessage:string="";

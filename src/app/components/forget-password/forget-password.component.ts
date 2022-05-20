@@ -18,6 +18,7 @@ export class ForgetPasswordComponent implements OnInit {
   }
   forget(forgetForm: FormGroup) {
     this._AuthService.forget(forgetForm.value).subscribe((response) => {
+      localStorage.setItem('email',JSON.stringify(forgetForm.value))
       if (response.data == 'Email sent successfully!') {
         this._Router.navigate(['reset-password']);
       }
