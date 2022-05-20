@@ -32,8 +32,8 @@ export class QuestionsService {
   completeQuestions(): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/coursequestion/complete/${this.courseId}`, { headers: this.token() });
   }
-  uploadCompleteFile(data: any): Observable<any> {
-    return this._HttpClient.post(`http://127.0.0.1:8000/api/import/complete`, data, { headers: this.token2() });
+  uploadCompleteFile(data: any , course_id : any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/import/${course_id}/complete`, data, { headers: this.token2() });
   }
   deleteCompleteQuestion(data: any): Observable<any> {
     return this._HttpClient.delete(`http://127.0.0.1:8000/api/question/complete/${data}`, { headers: this.token() });
@@ -51,8 +51,8 @@ export class QuestionsService {
   TFQuestions(): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/coursequestion/tf/${this.courseId}`, { headers: this.token() });
   }
-  uploadTfFile(data: any): Observable<any> {
-    return this._HttpClient.post(`http://127.0.0.1:8000/api/import/tf`, data, { headers: this.token2() });
+  uploadTfFile(data: any , course_id : any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/import/${course_id}/tf`, data, { headers: this.token2() });
   }
   deleteTfQuestion(data: any): Observable<any> {
     return this._HttpClient.delete(`http://127.0.0.1:8000/api/question/tf/${data}`, { headers: this.token() });
@@ -70,8 +70,8 @@ export class QuestionsService {
   McqQuestions(): Observable<any> {
     return this._HttpClient.get(`http://127.0.0.1:8000/api/coursequestion/mcq/${this.courseId}`, { headers: this.token() });
   }
-  uploadmcqFile(data: any): Observable<any> {
-    return this._HttpClient.post(`http://127.0.0.1:8000/api/import/mcq`, data, { headers: this.token2() });
+  uploadmcqFile(data: any , course_id : any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/import/${course_id}/mcq`, data, { headers: this.token2() });
   }
   deletemcqQuestion(data: any): Observable<any> {
     return this._HttpClient.delete(`http://127.0.0.1:8000/api/question/Mcq/${data}`, { headers: this.token() });

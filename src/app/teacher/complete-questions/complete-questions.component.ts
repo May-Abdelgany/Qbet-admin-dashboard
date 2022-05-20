@@ -34,7 +34,8 @@ export class CompleteQuestionsComponent implements OnInit {
     this.formData = new FormData();
     this.formData.append('file', this.file,this.file.name);
     console.log(this.formData.get('file'))
-    this._QuestionsService.uploadCompleteFile(this.formData).subscribe((response) => {
+    var course_id=localStorage.getItem('courseId')
+    this._QuestionsService.uploadCompleteFile(this.formData,course_id).subscribe((response) => {
       if (response.data!= null) {
         this.successMessage=response.data;
         $('.alert').removeClass('d-none');

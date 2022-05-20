@@ -116,6 +116,7 @@ export class QuestionsComponent implements OnInit {
         localStorage.setItem("Exam_questions", JSON.stringify(this.allQuestions))
         this.length = JSON.parse(localStorage.getItem("Exam_questions") || '{}').length
         if (this.length != 0) {
+          complete = $('#exampleFormControlTextarea6').val(null);
           this.getQuestion();
         }
       }
