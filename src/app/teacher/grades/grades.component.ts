@@ -28,6 +28,7 @@ export class GradesComponent implements OnInit {
             'exam_id': this.exam_id,
             'student_id': this.allStudent[0][i]
           }
+          console.log(this.request)
           this._ExamService.showGrades(this.request).subscribe((response) => {
             this.allData.push(response);
           });

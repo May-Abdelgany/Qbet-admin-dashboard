@@ -1,6 +1,6 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { QuestionsService } from 'src/app/services/questions.service';
 import { ExamService } from 'src/app/services/exam.service';
 declare var $: any;
@@ -9,7 +9,7 @@ declare var $: any;
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })
-export class QuestionsComponent implements OnInit {
+export class QuestionsComponent implements OnInit,OnDestroy{
   start_time: any;
   end_time: any;
   allQuestions: any[] = [];
@@ -25,11 +25,11 @@ export class QuestionsComponent implements OnInit {
   allCorrect: any[] = [];
   constructor(private _QuestionsService: QuestionsService, private _Router: Router, private _ExamService: ExamService) { }
   ngOnInit(): void {
+    this.time();
     this.length = JSON.parse(localStorage.getItem("Exam_questions") || '{}').length;
     if (this.length != 0) {
       this.getQuestion();
     }
-    this.time();
   }
   getQuestion() {
     this.allQuestions = JSON.parse(localStorage.getItem("Exam_questions") || '{}');
@@ -131,6 +131,7 @@ export class QuestionsComponent implements OnInit {
       'exam_id': Number(localStorage.getItem('examId')),
       'student_id': JSON.parse(localStorage.getItem("user") || '{}').id,
     }
+    console.log(finish)
     this._ExamService.finish(finish).subscribe((res) => {
       if (res.data != null) {
         localStorage.setItem('grade', JSON.stringify(res.data));
@@ -146,7 +147,6 @@ export class QuestionsComponent implements OnInit {
           }
         })
       }
-      console.log(res)
     })
   }
 
@@ -177,5 +177,8 @@ export class QuestionsComponent implements OnInit {
       this.values = '';
       this.allCorrect = [];
     }
+  }
+  ngOnDestroy() {
+    this.finish();
   }
 }

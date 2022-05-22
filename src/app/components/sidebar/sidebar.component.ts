@@ -24,7 +24,6 @@ export class SidebarComponent implements OnInit {
     });
   }
   logout() {
-    localStorage.removeItem('user');
     this._AuthService.decode.next(null);
     this._Router.navigate(['login']);
     localStorage.clear();
