@@ -40,6 +40,7 @@ export class QuestionsComponent implements OnInit {
         this.mcq_question = null;
         this.type = 'tf';
         this.id = this.tf_question.id;
+        $(".next").removeAttr("disabled");
       })
     }
     else if (this.allQuestions[0].complete_id != null) {
@@ -49,6 +50,7 @@ export class QuestionsComponent implements OnInit {
         this.mcq_question = null;
         this.type = 'complete';
         this.id = this.complete_question.id;
+        $(".next").removeAttr("disabled");
       })
     }
     else if (this.allQuestions[0].smcq_id != null) {
@@ -58,6 +60,7 @@ export class QuestionsComponent implements OnInit {
         this.complete_question = null;
         this.type = 'mcq';
         this.id = this.mcq_question.id;
+        $(".next").removeAttr("disabled");
       })
     }
   }
@@ -89,6 +92,7 @@ export class QuestionsComponent implements OnInit {
     })
   }
   next() {
+    $(".next").attr("disabled", true);
     if (this.type == 'complete') {
       var complete = $('#exampleFormControlTextarea6').val();
       var answer = {

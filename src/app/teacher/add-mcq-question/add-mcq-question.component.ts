@@ -16,7 +16,6 @@ export class AddMcqQuestionComponent implements OnInit {
     answer3: new FormControl('', [Validators.required]),
     correct_answer: new FormControl(null, [Validators.required]),
     degree: new FormControl(null, [Validators.required, Validators.min(1)]),
-    time: new FormControl(null, [Validators.required]),
     status: new FormControl(null, [Validators.required]),
     display: new FormControl('static'),
     course_id: new FormControl(localStorage.getItem('courseId'))

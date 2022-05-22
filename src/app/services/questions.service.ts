@@ -86,4 +86,7 @@ export class QuestionsService {
     this.questionId = localStorage.getItem('questionId');
     return this._HttpClient.put(`http://127.0.0.1:8000/api/question/Mcq/${this.questionId}`, data, { headers: this.token() });
   }
+  get_question(data: any): Observable<any> {
+    return this._HttpClient.post(`http://127.0.0.1:8000/api/getquestion`, data, { headers: this.token() });
+  }
 }

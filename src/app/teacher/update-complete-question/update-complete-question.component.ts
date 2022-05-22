@@ -16,7 +16,6 @@ export class UpdateCompleteQuestionComponent implements OnInit {
     question:new FormControl('',[Validators.required]),
     answer:new FormControl('',[Validators.required]),
     degree:new FormControl('null',[Validators.required,Validators.min(1)]),
-    time:new FormControl('null',[Validators.required]),
     status:new FormControl('null',[Validators.required]),
     course_id:new FormControl(localStorage.getItem('courseId'))
     })
@@ -29,7 +28,6 @@ export class UpdateCompleteQuestionComponent implements OnInit {
         this.formQuestion.controls['answer'].setValue( this.questionData.answer);
         this.formQuestion.controls['degree'].setValue( this.questionData.degree);
         this.formQuestion.controls['status'].setValue( this.questionData.status);
-        this.formQuestion.controls['time'].setValue( this.questionData.time);
       }
     })
   }

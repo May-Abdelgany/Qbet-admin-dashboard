@@ -90,4 +90,5 @@ export class ExamService {
   do_again(data:any): Observable<any> {
     return this._HttpClient.post(`http://127.0.0.1:8000/api/doagain`,data, { headers: this.token() });
   }
+ 
 }

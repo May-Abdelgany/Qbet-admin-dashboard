@@ -15,7 +15,6 @@ export class UpdateTFQuestionComponent implements OnInit {
     answer2: new FormControl('false'),
     correct_answer: new FormControl('null', [Validators.required]),
     degree: new FormControl('null', [Validators.required, Validators.min(1)]),
-    time: new FormControl('null', [Validators.required]),
     status: new FormControl('null', [Validators.required]),
     course_id: new FormControl(localStorage.getItem('courseId'))
   })
@@ -34,7 +33,6 @@ export class UpdateTFQuestionComponent implements OnInit {
         this.formQuestion.controls['correct_answer'].setValue(this.questionData.correct_answer);
         this.formQuestion.controls['degree'].setValue(this.questionData.degree);
         this.formQuestion.controls['status'].setValue(this.questionData.status);
-        this.formQuestion.controls['time'].setValue(this.questionData.time);
       }
     });
   }
